@@ -11,8 +11,9 @@ export class GetDataService implements OnDestroy {
   subscription: Subscription = new Subscription();
   // https://spreadsheets.google.com/feeds/cells/1TkrkPNxI3dwIq6BaLNCSJau4D1M51iNc_dRTbj6v96U/2/public/full?alt=json
   apiURLpt1 = 'https://spreadsheets.google.com/feeds/list/';
-  gameLevel = '2';
-  apiKeypt2 = '1Pai-Dph18w2BZDhOvW1X_-q602eXiK5-JjnXIQh1lpM/';
+  gameLevel = '1';
+  apiKeypt2 = '1mr_InnmjGd_BHOHqr2N3XBLg3rd0w9RSyvtVX1DgGvQ/';  //Test Authorization
+  // apiKeypt2 = '1Pai-Dph18w2BZDhOvW1X_-q602eXiK5-JjnXIQh1lpM/';  //Authorization
   apiURLpt3 = '/public/values?alt=json';
   private triviaQ: SpecData[] = [];
 
@@ -24,7 +25,7 @@ export class GetDataService implements OnDestroy {
       this.dataService
         .getURL(this.apiURLpt1 + this.apiKeypt2 + this.gameLevel + this.apiURLpt3)
         .subscribe(x => {
-          // console.log('This the API call --->>>> ', x);
+          console.log('This the API call --->>>> ', x);
           for (const q of x.feed.entry) {
             const nfo: SpecData = {
 

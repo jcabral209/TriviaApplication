@@ -21,4 +21,8 @@ export class StartPageComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  getSelectTopic(topic: string) {
+    console.log('This is my topic =========>>> ', topic);
+  }
 }

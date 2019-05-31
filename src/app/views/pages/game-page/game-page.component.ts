@@ -12,8 +12,8 @@ export class GamePageComponent implements OnInit {
 
   constructor(private triviaGame: GetDataService) {
     this.triviaQ = [];
-    this.triviaQ = this.triviaGame.getTriviaQuestions('2');
-    console.log('This are the trivia Questions --> ', this.triviaQ);
+    this.triviaQ = this.triviaGame.getTriviaQuestions('3');
+    // console.log('This are the trivia Questions --> ', this.triviaQ);
   }
 
   ngOnInit() {

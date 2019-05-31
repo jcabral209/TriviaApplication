@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OptionLevelService } from 'src/app/services/option-level.service';
 
 @Component({
   selector: 'app-option-page',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OptionPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private optionFromOptionPage: OptionLevelService) { }
 
   ngOnInit() {
-  }
 
+  }
+  getOptionLevel(levelValue: string) {
+    console.log('Passing Select Value =====>>>  ', levelValue);
+    this.optionFromOptionPage.setLevel(levelValue);
+    console.log('Check in Select Function =====>>>  ', this.optionFromOptionPage.getSelectLevel());
+  }
 }

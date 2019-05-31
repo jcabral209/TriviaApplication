@@ -19,13 +19,13 @@ export class GetDataService implements OnDestroy {
 
   constructor(private dataService: DataService) { }
   getTriviaQuestions(gameLevel: string) {
-    console.log('This is my URL =======>>>>>>', this.apiURLpt1 + this.apiKeypt2 + this.gameLevel + this.apiURLpt3);
+    // console.log('This is my URL =======>>>>>>', this.apiURLpt1 + this.apiKeypt2 + this.gameLevel + this.apiURLpt3);
     this.triviaQ = [];
     this.subscription.add(
       this.dataService
         .getURL(this.apiURLpt1 + this.apiKeypt2 + this.gameLevel + this.apiURLpt3)
         .subscribe(x => {
-          console.log('This the API call --->>>> ', x);
+          // console.log('This the API call --->>>> ', x);
           for (const q of x.feed.entry) {
             const nfo: SpecData = {
 
@@ -39,7 +39,7 @@ export class GetDataService implements OnDestroy {
               correct_answer: q['gsx$correctanswer']['$t']
             };
             this.triviaQ.push(nfo);
-            console.log('TEST LINE =======>>>>>>>>>', nfo);
+            // console.log('TEST LINE =======>>>>>>>>>', nfo);
           }
         })
     );

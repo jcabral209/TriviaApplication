@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OptionLevelService } from 'src/app/services/option-level.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-option-page',
@@ -7,15 +8,15 @@ import { OptionLevelService } from 'src/app/services/option-level.service';
   styleUrls: ['./option-page.component.css']
 })
 export class OptionPageComponent implements OnInit {
-
-  constructor(private optionFromOptionPage: OptionLevelService) { }
+  topic: string;
+  constructor(private optionFromOptionPage: OptionLevelService,
+    private _route: ActivatedRoute,
+    private _router: Router) { }
 
   ngOnInit() {
-
-  }
-  getOptionLevel(levelValue: string) {
-    console.log('Passing Select Value =====>>>  ', levelValue);
-    this.optionFromOptionPage.setLevel(levelValue);
-    console.log('Check in Select Function =====>>>  ', this.optionFromOptionPage.getSelectLevel());
+    this._route.params.subscribe(params => {
+      this.topic = params['topic'];
+      console.log('My topic is: ', this.topic);
+    });
   }
 }

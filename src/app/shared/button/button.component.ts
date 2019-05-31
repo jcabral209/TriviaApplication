@@ -8,18 +8,18 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ButtonComponent implements OnInit {
   @Input() btnName: string;
-  @Input() route: string;
-  @Input() enterTopic: string;
-  @Input() enterLevel: string;
-  valueTopic = 'History';
+  // @Input() route: string;
+  // @Input() enterTopic: string;
+  // @Input() enterLevel: string;
+  // valueTopic = 'History';
 
   // public valueTopic: BehaviorSubject<string> = new BehaviorSubject<string>(this.enterTopic);
   // public valueLevel: BehaviorSubject<string> = new BehaviorSubject<string>(this.enterLevel);
   constructor() { }
 
   ngOnInit() {
-    console.log ('Enter Topic Value =====>>>> ', this.enterTopic);
-    console.log ('Enter Level Value =====>>>> ', this.enterLevel);
+    // console.log('Enter Topic Value =====>>>> ', this.enterTopic);
+    // console.log('Enter Level Value =====>>>> ', this.enterLevel);
   }
 
 }

@@ -6,13 +6,15 @@
   </div>
   <div class="row mt-2">
     <div class="col-4 d-flex justify-content-center my-2">
-      <app-button [route]="'/game'" [btnName]="'Hard'" (click)= "getOptionLevel('1')"></app-button>
+      <app-button [routerLink]="['/game',topic,1]" [btnName]="'Hard'">
+
+      </app-button>
     </div>
     <div class="col-4 d-flex justify-content-center my-2">
-      <app-button [route]="'/game'" [btnName]="'Medium'" (click)= "getOptionLevel('2')"></app-button>
+      <app-button [routerLink]="['/game',topic,2]" [btnName]="'Medium'"></app-button>
     </div>
     <div class="col-4 d-flex justify-content-center my-2">
-      <app-button [route]="'/game'" [btnName]="'Easy'" (click)= "getOptionLevel('3')"></app-button>
+      <app-button [routerLink]="['/game',topic,3]" [btnName]="'Easy'"></app-button>
     </div>
   </div>
 </div>

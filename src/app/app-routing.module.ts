@@ -6,8 +6,8 @@ import { OptionPageComponent } from './views/pages/option-page/option-page.compo
 
 const routes: Routes = [
   { path: 'title', component: StartPageComponent },
-  { path: 'game', component: GamePageComponent },
-  { path: 'options', component: OptionPageComponent },
+  { path: 'game/:topic/:levelId', component: GamePageComponent },
+  { path: 'options/:topic', component: OptionPageComponent },
   { path: '', component: StartPageComponent, pathMatch: 'full' },
   { path: '**', component: StartPageComponent }
 ];

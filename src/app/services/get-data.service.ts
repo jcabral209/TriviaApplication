@@ -2,6 +2,8 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SpecData } from '../interfaces/spec-data';
 import { DataService } from './data.service';
+import * as _ from 'lodash';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,23 +11,30 @@ import { DataService } from './data.service';
 
 export class GetDataService implements OnDestroy {
   subscription: Subscription = new Subscription();
-  // https://spreadsheets.google.com/feeds/list/1mr_InnmjGd_BHOHqr2N3XBLg3rd0w9RSyvtVX1DgGvQ/1/public/values?alt=json
-  apiURLpt1 = 'https://spreadsheets.google.com/feeds/list/';
-  gameLevel = '3';
-  apiKeypt2 = '1mr_InnmjGd_BHOHqr2N3XBLg3rd0w9RSyvtVX1DgGvQ/';  //Test Authorization
-  // apiKeypt2 = '1Pai-Dph18w2BZDhOvW1X_-q602eXiK5-JjnXIQh1lpM/';  //Authorization
-  apiURLpt3 = '/public/values?alt=json';
+
   private triviaQ: SpecData[] = [];
 
   constructor(private dataService: DataService) { }
-  getTriviaQuestions(gameLevel: string) {
-    // console.log('This is my URL =======>>>>>>', this.apiURLpt1 + this.apiKeypt2 + this.gameLevel + this.apiURLpt3);
+  getTriviaQuestions(topic: string, gameLevel: string) {
+
+    const keys = [{ key: '1age3SHskms1aDJELbscpmiJ_GceFJiWVB3q4IDxFFD8/', topic: 'videoGames' },
+    { key: '1F-_Tyhaew1OZLLy8A1ksj4nNtVHejCRFbUI4IJT8FEU/', topic: 'history' },
+    { key: '1Pai-Dph18w2BZDhOvW1X_-q602eXiK5-JjnXIQh1lpM/', topic: 'generalKnowledge' },
+    { key: '1TLvp-_Wo1N3mWwP-gIzXDoIF6j50nhzfvDFT2TKD71w/', topic: 'scienceNature' },
+    ];
+
+    const apiURLpt1 = 'https://spreadsheets.google.com/feeds/list/';
+    const apiURLpt2 = '/public/values?alt=json';
+    console.log('Topic lm filtering by is: ', topic);
+    let locatedKey = _.filter(keys, function (o) { return o.topic == topic; });
+    console.log('This is my key =====>', locatedKey);
+
     this.triviaQ = [];
     this.subscription.add(
       this.dataService
-        .getURL(this.apiURLpt1 + this.apiKeypt2 + this.gameLevel + this.apiURLpt3)
+        .getURL(apiURLpt1 + locatedKey[0].key + gameLevel + apiURLpt2)
         .subscribe(x => {
-          // console.log('This the API call --->>>> ', x);
+          console.log('This the API call --->>>> ', x);
           for (const q of x.feed.entry) {
             const nfo: SpecData = {
 
@@ -44,6 +53,7 @@ export class GetDataService implements OnDestroy {
         })
     );
     return this.triviaQ;
+
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();

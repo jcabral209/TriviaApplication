@@ -17,19 +17,17 @@
         </div>
         <div class="row mt-2">
           <div class="col-6 d-flex justify-content-center my-2">
-            <app-button [route]="'/options'" [btnName]="'Video Games'" (click)="getSelectTopic('videoGames')">
+            <app-button [routerLink]="['/options','videoGames']" [btnName]="'Video Games'">
             </app-button>
           </div>
           <div class="col-6 d-flex justify-content-center my-2">
-            <app-button [route]="'/options'" [btnName]="'General Knowledge'"
-              (click)="getSelectTopic('generalKnowledge')"></app-button>
+            <app-button [routerLink]="['/options','generalKnowledge']" [btnName]="'General Knowledge'"></app-button>
           </div>
           <div class="col-6 d-flex justify-content-center my-2">
-            <app-button [route]="'/options'" [btnName]="'History'" (click)="getSelectTopic('history')"></app-button>
+            <app-button [routerLink]="['/options','history']" [btnName]="'History'"></app-button>
           </div>
           <div class="col-6 d-flex justify-content-center my-2">
-            <app-button [route]="'/options'" [btnName]="'Science & Nature'"
-              (click)="getSelectTopic('generalKnowledge')"></app-button>
+            <app-button [routerLink]="['/options','scienceNature']" [btnName]="'Science & Nature'"></app-button>
           </div>
 
         </div>

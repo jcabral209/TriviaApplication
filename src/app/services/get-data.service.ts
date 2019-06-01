@@ -26,7 +26,7 @@ export class GetDataService implements OnDestroy {
     const apiURLpt1 = 'https://spreadsheets.google.com/feeds/list/';
     const apiURLpt2 = '/public/values?alt=json';
     console.log('Topic lm filtering by is: ', topic);
-    let locatedKey = _.filter(keys, function (o) { return o.topic == topic; });
+    const locatedKey = _.filter(keys, function(o) { return o.topic === topic; });
     console.log('This is my key =====>', locatedKey);
 
     this.triviaQ = [];
@@ -48,12 +48,11 @@ export class GetDataService implements OnDestroy {
               correct_answer: q['gsx$correctanswer']['$t']
             };
             this.triviaQ.push(nfo);
-            // console.log('TEST LINE =======>>>>>>>>>', nfo);
+
           }
         })
     );
     return this.triviaQ;
-
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { OptionLevelService } from 'src/app/services/option-level.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -8,10 +7,15 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./option-page.component.css']
 })
 export class OptionPageComponent implements OnInit {
+  public get route(): ActivatedRoute {
+    return this._route;
+  }
+  public set route(value: ActivatedRoute) {
+    this._route = value;
+  }
   topic: string;
-  constructor(private optionFromOptionPage: OptionLevelService,
-    private _route: ActivatedRoute,
-    private _router: Router) { }
+  constructor(private _route: ActivatedRoute,
+              private _router: Router) { }
 
   ngOnInit() {
     this._route.params.subscribe(params => {

@@ -10,6 +10,7 @@ import { GamePageComponent } from './views/pages/game-page/game-page.component';
 import { OptionPageComponent } from './views/pages/option-page/option-page.component';
 import { StartPageComponent } from './views/pages/start-page/start-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CountdownModule } from 'ngx-countdown';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CountdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

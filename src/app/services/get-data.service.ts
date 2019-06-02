@@ -58,33 +58,33 @@ export class GetDataService implements OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  // shuffleArray(array: any[], len: number) {
-  //   let temp: any;
-  //   let index: any;
-  //   for (let i = 0; i < len; i++) {
-  //     console.log('i: ', i);
-  //     array.push(i);
-  //   }
-  //   console.log(
-  //     'After for loop this is ARRAY[] --> ',
-  //     array
-  //   );
-  //   // While there are elements in the array
-  //   while (len > 0) {
-  //     // Pick a random index
-  //     index = Math.floor(Math.random() * len);
-  //     // Decrease len by 1
-  //     console.log('INSIDE WHILE  ---> ' + index);
-  //     len--;
-  //     // And swap the last element with it
-  //     temp = array[len];
-  //     array[len] = array[index];
-  //     array[index] = temp;
-  //   }
-  //   console.log('This is the index order of the ARRAY -> ', array);
-  //   return array;
-  //   // var myArray = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-  //   // console.log(shuffle(myArray));
-  // }
+  shuffleArray(array: any[], len: number) {
+    let temp: any;
+    let index: any;
+    for (let i = 0; i < len; i++) {
+      console.log('i: ', i);
+      array.push(i);
+    }
+    console.log(
+      'After for loop this is ARRAY[] --> ',
+      array
+    );
+    // While there are elements in the array
+    while (len > 0) {
+      // Pick a random index
+      index = Math.floor(Math.random() * len);
+      // Decrease len by 1
+      console.log('INSIDE WHILE  ---> ' + index);
+      len--;
+      // And swap the last element with it
+      temp = array[len];
+      array[len] = array[index];
+      array[index] = temp;
+    }
+    console.log('This is the index order of the ARRAY -> ', array);
+    return array;
+    // var myArray = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    // console.log(shuffle(myArray));
+  }
 
 }
